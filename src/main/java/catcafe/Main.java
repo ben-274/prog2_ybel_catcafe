@@ -1,5 +1,8 @@
 package catcafe;
 
+import tree.InOrderVisitor;
+import tree.PostOrderVisitor;
+
 /** Starter for the cat-café task. */
 public class Main {
     /**
@@ -22,5 +25,11 @@ public class Main {
         cafe.getCatByName("Morticia").ifPresent(meow -> System.out.println("Name 'Morticia': " + meow));
 
         cafe.getCatByName("Miss Chief Sooky").ifPresent(meow -> System.out.println("Name 'Miss Chief Sooky': " + meow));
+        
+        System.out.println("InOrder Traversierung: ");
+        System.out.println(cafe.accept(new InOrderVisitor<>()));
+
+        System.out.println("\nPostOrder Traversierung: ");
+        System.out.println(cafe.accept(new PostOrderVisitor<>()));
     }
 }
